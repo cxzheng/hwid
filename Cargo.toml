@@ -14,7 +14,7 @@ license = "MIT"
 winreg = "0.10.1"
 
 [dependencies]
-thiserror = "1.0.31"
+thiserror = "2"
 
 [[example]]
 name = "get_hwid"
