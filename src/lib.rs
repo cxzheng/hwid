@@ -49,7 +49,7 @@ mod hwid {
     /// obtained by running
     ///
     /// ```text
-    /// ioreg -rd1 -c IOExpertPlatformDevice
+    /// ioreg -rd1 -c IOPlatformExpertDevice
     /// ```
     ///
     /// and returning the result.
@@ -77,7 +77,9 @@ mod hwid {
                 if id.is_empty() {
                     Err(HwIdError::Malformed(String::from("ioreg")))
                 } else {
-                    Ok(id.to_string())
+                    let mut s = id.to_string();
+                    s.retain(|c| c != '-');
+                    Ok(s)
                 }
             }
         }

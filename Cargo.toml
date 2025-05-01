@@ -1,6 +1,6 @@
 [package]
-name = "hardware-id"
-version = "0.3.0"
+name = "hwid"
+version = "0.3.1"
 description = "Access Hardware ID information on Windows, macOS and Linux platforms"
 repository = "https://github.com/tilda/rust-hwid"
 keywords = ["windows", "macos", "linux"]
