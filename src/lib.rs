@@ -36,7 +36,9 @@ mod hwid {
         let hive = winreg::RegKey::predef(HKEY_LOCAL_MACHINE)
             .open_subkey_with_flags("Software\\Microsoft\\Cryptography", KEY_QUERY_VALUE)
             .or(Err(HwIdError::NotFound))?;
-        let id = hive.get_value("MachineGuid").or(Err(HwIdError::NotFound))?;
+        let mut id: std::string::String =
+            hive.get_value("MachineGuid").or(Err(HwIdError::NotFound))?;
+        id.retain(|c| c != '-');
         Ok(id)
     }
 }
